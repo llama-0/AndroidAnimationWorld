@@ -1,0 +1,9 @@
+apply plugin: 'com.android.library'
+apply from: "${rootProject.projectDir}/gradle/common_library.gradle"
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation "com.google.dagger:hilt-android:$versions.hilt"
+    kapt "com.google.dagger:hilt-compiler:$versions.hilt"
+}

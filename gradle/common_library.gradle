@@ -1,0 +1,35 @@
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion build_config.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion build_config.minSdkVersion
+        targetSdkVersion build_config.targetSdkVersion
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion versions.compose
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = build_config.jvmTarget
+        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+//    todo add test dependencies
+}
